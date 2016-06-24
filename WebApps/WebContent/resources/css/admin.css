@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+.table-main {
+	width: 80% !important;
+	margin-left: 10%;
+}
+
+/*		Head	*/
+.table>thead {
+	background: #400040;
+	color: #ffffff;
+}
+
+/*		BodY	*/
+.table>tbody {
+	background-color: #ccc20b;
+}

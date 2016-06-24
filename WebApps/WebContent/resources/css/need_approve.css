@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+#text {
+	background-color: #ffffff;
+	width: 40%;
+	height: 20%;
+	padding: 2vh;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+	border: 1vh solid navy;
+}
+
+#h1 {
+	font-size: 150%;
+	text-align: center;
+}
+
+#h2 {
+	text-align: center;
+	font-size: 150%;
+}
