@@ -4,12 +4,13 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
+
 /**
  * The persistent class for the users database table.
  * 
  */
 @Entity
-@Table(name = "users")
+@Table(name="users")
 @NamedQueries(value = { @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
 		@NamedQuery(name = "User.login", query = "SELECT u FROM User u WHERE u.username= ?1 AND u.password= ?2"),
 		@NamedQuery(name = "User.confirm", query = "UPDATE User u SET u.active= TRUE WHERE u.id= ?1"),
@@ -21,7 +22,7 @@ import java.util.List;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	@Id@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	private Boolean active;
@@ -34,20 +35,20 @@ public class User implements Serializable {
 
 	private String email;
 
-	@Column(name = "first_name")
+	@Column(name="first_name")
 	private String firstName;
 
-	@Column(name = "last_name")
+	@Column(name="last_name")
 	private String lastName;
 
 	private String password;
 
 	private int phone;
 
-	@Column(name = "ratting_bidder")
+	@Column(name="ratting_bidder")
 	private int rattingBidder;
 
-	@Column(name = "ratting_seller")
+	@Column(name="ratting_seller")
 	private int rattingSeller;
 
 	private String role;
@@ -56,12 +57,12 @@ public class User implements Serializable {
 
 	private int zip;
 
-	// bi-directional many-to-one association to Auction
-	@OneToMany(mappedBy = "user")
+	//bi-directional many-to-one association to Auction
+	@OneToMany(mappedBy="user",cascade = CascadeType.PERSIST)
 	private List<Auction> auctions;
 
-	// bi-directional many-to-one association to Bid
-	@OneToMany(mappedBy = "user")
+	//bi-directional many-to-one association to Bid
+	@OneToMany(mappedBy="user")
 	private List<Bid> bids;
 
 	public User() {

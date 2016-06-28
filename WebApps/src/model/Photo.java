@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Photo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	@Id@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	@Lob
@@ -21,7 +21,6 @@ public class Photo implements Serializable {
 
 	//bi-directional many-to-one association to Auction
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="auction_id")
 	private Auction auction;
 
 	public Photo() {

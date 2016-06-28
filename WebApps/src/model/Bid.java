@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 
 /**
@@ -18,15 +19,16 @@ public class Bid implements Serializable {
 	@Id
 	private int id;
 
+	@Column(name="Amount")
 	private BigDecimal amount;
 
-	@Column(name="bidder_users_id")
-	private int bidderUsersId;
-
-	private BigDecimal time;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="Time")
+	private Date time;
 
 	//bi-directional many-to-one association to Auction
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="auction_id")
 	private Auction auction;
 
 	//bi-directional many-to-one association to User
@@ -53,19 +55,12 @@ public class Bid implements Serializable {
 		this.amount = amount;
 	}
 
-	public int getBidderUsersId() {
-		return this.bidderUsersId;
-	}
 
-	public void setBidderUsersId(int bidderUsersId) {
-		this.bidderUsersId = bidderUsersId;
-	}
-
-	public BigDecimal getTime() {
+	public Date getTime() {
 		return this.time;
 	}
 
-	public void setTime(BigDecimal time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 

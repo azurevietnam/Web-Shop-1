@@ -63,8 +63,9 @@
 							<li>
 								<%
 									if (session.getAttribute("username") != null) {
-										if (session.getAttribute("username").equals("Admin")) {
-								%><a href="./admin.jsp">Administrator</a>
+										if (session.getAttribute("role").equals("ADMIN")) {
+								%><a href="./admin.jsp">Administrator</a> <a
+								href="./Import-Export.jsp">Import-Export</a>
 							</li>
 							<%
 								}
@@ -111,6 +112,12 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-
+	<script src="content/js/jquery.min.js"></script>
+	<script src="content/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.dropdown-toggle').dropdown();
+		});
+	</script>
 </body>
 </html>

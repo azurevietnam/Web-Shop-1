@@ -56,15 +56,15 @@ public class Auction implements Serializable {
 	private User user;
 
 	//bi-directional many-to-one association to Bid
-	@OneToMany(mappedBy="auction")
+	@OneToMany(mappedBy="auction",cascade = CascadeType.ALL)
 	private List<Bid> bids;
 
 	//bi-directional many-to-one association to Category
-	@OneToMany(mappedBy="auction")
+	@OneToMany(mappedBy="auction",cascade = CascadeType.PERSIST)
 	private List<Category> categories;
 
 	//bi-directional many-to-one association to Photo
-	@OneToMany(mappedBy="auction",cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy="auction")
 	private List<Photo> photos;
 
 	public Auction() {

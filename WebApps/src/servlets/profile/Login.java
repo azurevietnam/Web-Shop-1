@@ -53,6 +53,7 @@ public class Login extends HttpServlet {
 				session.setAttribute("email",user.getEmail());
 				session.setAttribute("phone",user.getPhone());
 				session.setAttribute("address",user.getAddress());
+				session.setAttribute("role",user.getRole());
 				session.setAttribute("city",user.getCity());
 				session.setAttribute("afm",user.getAfm());
 				session.setAttribute("zip",user.getZip());

@@ -42,7 +42,7 @@ public class UsersDAOImpl implements UsersDAO {
 		try {
 			EntityManager em = EntityManagerHelper.getEntityManager();
 			EntityManagerHelper.beginTransaction();
-			Query query = em.createNamedQuery("User.login").setParameter("1", username).setParameter(2, password);
+			Query query = em.createNamedQuery("User.login").setParameter("1", username).setParameter("2", password);
 			try {
 				User user = (User) query.getSingleResult();
 				EntityManagerHelper.commit();

@@ -14,14 +14,27 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	private int id; 
+	
+	@Column(name="Name")
 	private String name;
 
 	//bi-directional many-to-one association to Auction
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="auction_id")
 	private Auction auction;
 
 	public Category() {
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 	public String getName() {
 		return this.name;

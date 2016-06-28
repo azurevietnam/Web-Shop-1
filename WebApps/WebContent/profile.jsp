@@ -74,6 +74,10 @@
 											<td>ΑΦΜ</td>
 											<td><%=session.getAttribute("afm")%></td>
 										</tr>
+										<tr>
+											<td>Role</td>
+											<td><%=session.getAttribute("role")%></td>
+										</tr>
 
 									</tbody>
 								</table>

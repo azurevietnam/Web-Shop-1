@@ -151,10 +151,10 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item id=" + id + ",Name=" + name + ", Category=" + category + ", First_Bid=" + first_Bid
+		return "\nItem id=" + id + ",Name=" + name + ", Category=" + category + ", First_Bid=" + first_Bid
 				+ ", Buy_Price= " + buy_Price + ", Currently=" + currently + ", Number_Of_Binds=" + numberOfBinds
 				+ ", Country=" + country + "," + location + ", Ends=" + ends + ", Started=" + started + ", " + seller
-				+ "Description=" + description + binds + "]";
+				+ "Bidds["  +binds + "Description=" + description + "]";
 	}
 
 }
