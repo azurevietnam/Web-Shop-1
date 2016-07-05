@@ -25,7 +25,7 @@
 		<section id="content">
 
 			<!-- form -->
-			<form action="./Login" method="get">
+			<form action="./Login" method="post">
 				<h1>Login Form</h1>
 				<div>
 					<input type="text" placeholder="Username" id="username"

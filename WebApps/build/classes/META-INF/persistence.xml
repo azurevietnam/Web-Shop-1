@@ -8,6 +8,7 @@
 		<class>model.Category</class>
 		<class>model.Photo</class>
 		<class>model.User</class>
+		<class>model.Categories</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/webApp" />
 			<property name="javax.persistence.jdbc.user" value="keatmar" />

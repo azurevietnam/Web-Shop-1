@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import unmarsalling.Unmarshal;
+import unmarsalling.UnmarshalCategories;
 
 @WebServlet("/Import_Export")
 public class Import_Export extends HttpServlet {
@@ -17,7 +18,6 @@ public class Import_Export extends HttpServlet {
 
     public Import_Export() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 
@@ -30,12 +30,21 @@ public class Import_Export extends HttpServlet {
 			unmarshal.setFile(fImport);
 			try {
 				unmarshal.UnmarshalXml();
-				disp = getServletContext().getRequestDispatcher("/index.jsp");
-				disp.forward(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(e);
 			}
+			
+			UnmarshalCategories unmarshalCategories = new UnmarshalCategories();
+			unmarshalCategories.setFile(fImport);
+			try {
+				unmarshalCategories.UnmarshalXml();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e);
+			}
+			disp = getServletContext().getRequestDispatcher("/index.jsp");
+			disp.forward(request, response);
 		}
 		
 		if(!fExport.equals("")){

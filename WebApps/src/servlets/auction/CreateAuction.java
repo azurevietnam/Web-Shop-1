@@ -23,6 +23,7 @@ import ConnectionFactory.AuctionDAOImpl;
 import ConnectionFactory.UsersDAO;
 import ConnectionFactory.UsersDAOImpl;
 import model.Auction;
+import model.Category;
 import model.Photo;
 import model.User;
 
@@ -46,19 +47,28 @@ public class CreateAuction extends HttpServlet {
 		String username = (String) session.getAttribute("username");
 		String password = (String) session.getAttribute("password");
 		User user = userDAO.loginUser(username, password);
-
 		String page = request.getParameter("createAuction");
 
 		if (page.equals("page1")) {
 			String name = request.getParameter("Name");
+			String categoryPath = request.getParameter("Categories");
+			String[] category = categoryPath.split("->");
 			String location = request.getParameter("Location");
 			String country = request.getParameter("Country");
 			String description = request.getParameter("Description");
 			String latitude = request.getParameter("Latitude");
 			String longitude = request.getParameter("Longitude");
-
 			Date started = new Date();
-
+			
+			Category[] categories = new Category[category.length];
+			List<Category> listCategory = new ArrayList<Category>();
+			for(int i=0; i<category.length; i++){
+				categories[0].setGrade(i+1);
+				categories[0].setName(category[0]);
+				categories[0].setAuction(auction);
+				listCategory.add(categories[0]);
+			}
+			auction.setCategories(listCategory);
 			auction.setUser(user);
 			auction.setStarted(started);
 			auction.setName(name);

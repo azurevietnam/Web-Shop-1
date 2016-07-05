@@ -7,7 +7,6 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -89,6 +88,7 @@ public class Unmarshal {
 				for (Object obj1 : listCategory) {
 					String category = (String) obj1;
 					categories[i] = new Category();
+					categories[i].setGrade(i+1);
 					categories[i].setName(category);
 					categories[i].setAuction(auction);
 					auction.addCategory(categories[i]);

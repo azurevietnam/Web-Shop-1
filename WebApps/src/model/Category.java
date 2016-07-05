@@ -18,6 +18,9 @@ public class Category implements Serializable {
 	
 	@Column(name="Name")
 	private String name;
+	
+	@Column(name="Category_Grade")
+	private int grade;
 
 	//bi-directional many-to-one association to Auction
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -42,6 +45,16 @@ public class Category implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+	public int getGrade() {
+		return grade;
+	}
+
+	
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 
 	public Auction getAuction() {

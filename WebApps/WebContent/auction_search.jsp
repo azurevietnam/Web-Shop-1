@@ -43,12 +43,14 @@
 			<div class="col-md-2">
 				<div class="panel-group" id="accordion">
 					<div class="panel panel-default">
+						
 						<div class="panel-heading">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion"
-									href="#collapseOne">Antiques</a>
+									href="#collapseOne" id="value0">Antiques</a>
 							</h4>
 						</div>
+						
 						<div class="panel-heading">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion"
