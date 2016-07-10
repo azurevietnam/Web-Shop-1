@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html" pageEncoding="utf-8"%>
 <!DOCTYPE html>
+<%@page
+	import="java.util.*,java.sql.*,javax.servlet.http.HttpServletRequest"%>
+<%@page
+	import="model.Categories,ConnectionFactory.CategoriesDAO,ConnectionFactory.CategoriesDAOImpl"%>
 <html>
 <head>
 
@@ -21,77 +25,109 @@
 	<!-- 	Menu Bar	 -->
 	<%@ include file="./menu_bar.jsp"%>
 
-	<!-- Search Bar -->
-	<div class="container">
-		<div class="row">
-			<div id="custom-search-input">
-				<div class="input-group col-md-offset-3 col-md-6">
-					<input type="text" class="  search-query form-control"
-						placeholder="Search" /> <span class="input-group-btn">
-						<button class="btn btn-danger" type="button">
-							<span class=" glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- Slide bar  -->
 	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-				<div class="panel-group" id="accordion">
-					<div class="panel panel-default">
-						
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion"
-									href="#collapseOne" id="value0">Antiques</a>
-							</h4>
-						</div>
-						
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion"
-									href="#collapseOne"> Art</a>
-							</h4>
-						</div>
+		<div class="row centered-form">
+			<div class="col-md-9 col-md-offset-1 column">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2 class="panel-title text-center">Search Auction</h2>
+					</div>
 
 
-						<!-- div id="collapseOne" class="panel-collapse collapse in">
-							<div class="panel-body">
-								<table class="table">
-									<tr>
-										<td><a href="#">Articles</a></td>
-									</tr>
-									<tr>
-										<td><a href="#">News</a></td>
-									</tr>
-									<tr>
-										<td><a href="#">Newsletters</a></td>
-									</tr>
-									<tr>
-										<td><a href="#">Comments</a></td>
-									</tr>
-								</table>
+					<form role="form" action="./CreateAuction" method="get">
+						<div class="grid">
+							<div class="row">
+								<div id="custom-search-input">
+									<div class="input-group col-md-offset-2 col-md-8">
+										<input type="text" class="search-query form-control"
+											placeholder="Search" /> <span class="input-group-btn">
+											<button class="btn btn-danger" type="button">
+												<span class=" glyphicon glyphicon-search"></span>
+											</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 col-md-offset-4">
+									<label>Browse A Category</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-offset-2 col-md-8">
+									<input type="text" name="Categories" id="categories"
+										class="form-control input-sm" value="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<select size="13" onchange="nextGrade(this.value,1);">
+										<%
+											CategoriesDAO categoriesDAO = new CategoriesDAOImpl();
+											List<Categories> clist = categoriesDAO.getFirstGrade();
+											for (Categories categories : clist) {
+										%>
+										<option id="option1" value="<%=categories.getName()%>"
+											role="option"><%=categories.getName()%></option>
+										<%
+											}
+										%>
+									</select>
+								</div>
+
+								<div class="col-md-2 col-md-offset-3">
+									<select style="display: none" id="category_2" name="fcat"
+										size="13" onchange="nextGrade(this.value,2);">
+
+									</select>
+								</div>
+
+
+								<div class="col-md-2 col-md-offset-2">
+									<select style="display: none" id="category_3" name="fcat"
+										size="13" onchange="nextGrade(this.value,3);">
+
+									</select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-2">
+									<select style="display: none" id="category_4" name="fcat"
+										size="13" onchange="nextGrade(this.value,4);">
+
+									</select>
+								</div>
+
+								<div class="col-md-2 col-md-offset-3">
+									<select style="display: none" id="category_5" name="fcat"
+										size="13" onchange="nextGrade(this.value,5);">
+
+									</select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="button">
+									<input type="button" value="Cancel"
+										onClick="window.location='http://localhost:8080/WebApps';"
+										class="btn col-md-offset-2 btn-danger"><input
+										type="submit" value="Next "
+										class="btn col-md-offset-6 btn-success">
+								</div>
 							</div>
 						</div>
-					</div-->
-
-
-
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
-
-
 	<!-- jQuery -->
-	<script src="./resources/js/jquery.js"></script>
-
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="./resources/js/category.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
 </body>

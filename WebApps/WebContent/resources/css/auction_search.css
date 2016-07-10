@@ -36,7 +36,6 @@
 	z-index: 3;
 }
 
-/* --------------------------------------------------------------------- */
 .glyphicon {
 	margin-right: 10px;
 }
@@ -52,4 +51,31 @@
 
 .panel-body .table {
 	margin-bottom: 0px;
+}
+
+.container .centered-form .column .panel .text-center{
+	color:black;
+	background-color: white;
+}
+
+/* -----------------------Browser Category ----------------------------- */
+.container{
+	
+}
+.container .grid{
+	padding-top:10px;	
+}
+
+.container .row {
+	padding-top:10px;
+	padding-right:10px;
+}
+
+.container .row label{
+	color:black;
+	font-size:20px;
+}
+
+.container .row .button{
+	margin-bottom:20px;
 }
