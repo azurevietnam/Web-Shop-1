@@ -15,11 +15,14 @@
 	<%@ include file="./menu_bar.jsp"%>
 
 	<!-- 	Main Body 	-->
-	<div class="container" id="text">
-		<div id="h1">Administrator need approve your account</div>
-		<div id="h2">Please Try again later!</div>
-	</div>
-	
+	<div class="container" >
+		<div class="row centered-form">
+			<div class="col-md-6 col-md-offset-3 column">
+				<h3 id="h1">Administrator need approve your account</h3>
+				<h4 id="h2">Please Try again later!</h4>
+			</div>
+		</div></div>
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

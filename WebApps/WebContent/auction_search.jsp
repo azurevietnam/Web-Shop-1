@@ -35,7 +35,7 @@
 					</div>
 
 
-					<form role="form" action="./CreateAuction" method="get">
+					<form role="form" action="./SearchAuction" method="get">
 						<div class="grid">
 							<div class="row">
 								<div id="custom-search-input">
