@@ -19,7 +19,7 @@ import model.Category;
 
 public class Unmarshal {
 
-	private String file = "./../ebay-data/items-0.xml";
+	private String file = "./../../ebay-data/items-0.xml";
 
 	public void UnmarshalXml() throws Exception {
 		JAXBContext context = JAXBContext.newInstance(Items.class);
