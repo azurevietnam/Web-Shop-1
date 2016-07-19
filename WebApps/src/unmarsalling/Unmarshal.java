@@ -24,6 +24,7 @@ public class Unmarshal {
 	public void UnmarshalXml() throws Exception {
 		JAXBContext context = JAXBContext.newInstance(Items.class);
 		Unmarshaller unmarshaller = context.createUnmarshaller();
+		System.out.println(file);
 		Items items = (Items) unmarshaller.unmarshal(new FileReader(file));
 
 		Auction auction = new Auction();
