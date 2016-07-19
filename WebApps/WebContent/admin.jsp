@@ -25,7 +25,7 @@
 	<!-- 	Main Body	 -->
 	<div class="container">
 		<div class="row centered-form">
-			<div class="col-md-7 column">
+			<div class="col-md-8 column">
 				<table class="table table-main" id="table">
 					<thead>
 						<tr>
