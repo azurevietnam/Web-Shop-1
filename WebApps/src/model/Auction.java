@@ -6,17 +6,18 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * The persistent class for the auction database table.
  * 
  */
 @Entity
-@NamedQuery(name="Auction.findAll", query="SELECT a FROM Auction a")
+@NamedQueries(value = { @NamedQuery(name = "Auction.findAll", query = "SELECT a FROM Auction a"),
+		@NamedQuery(name = "Auction.search", query = "SELECT a FROM Auction a WHERE a.categories = ?1") })
 public class Auction implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private BigDecimal buy_Price;
@@ -41,30 +42,30 @@ public class Auction implements Serializable {
 
 	private String name;
 
-	@Column(name="number_of_binds")
+	@Column(name = "number_of_binds")
 	private int numberOfBinds;
 
-	@Column(name="seller_users_id")
+	@Column(name = "seller_users_id")
 	private int sellerUsersId;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date started;
 
-	//bi-directional many-to-one association to User
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="users_id")
+	// bi-directional many-to-one association to User
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "users_id")
 	private User user;
 
-	//bi-directional many-to-one association to Bid
-	@OneToMany(mappedBy="auction",cascade = CascadeType.ALL)
+	// bi-directional many-to-one association to Bid
+	@OneToMany(mappedBy = "auction", cascade = CascadeType.ALL)
 	private List<Bid> bids;
 
-	//bi-directional many-to-one association to Category
-	@OneToMany(mappedBy="auction",cascade = CascadeType.PERSIST)
+	// bi-directional many-to-one association to Category
+	@OneToMany(mappedBy = "auction", cascade = CascadeType.PERSIST)
 	private List<Category> categories;
 
-	//bi-directional many-to-one association to Photo
-	@OneToMany(mappedBy="auction")
+	// bi-directional many-to-one association to Photo
+	@OneToMany(mappedBy = "auction")
 	private List<Photo> photos;
 
 	public Auction() {

@@ -63,10 +63,11 @@ public class CreateAuction extends HttpServlet {
 			Category[] categories = new Category[category.length];
 			List<Category> listCategory = new ArrayList<Category>();
 			for(int i=0; i<category.length; i++){
-				categories[0].setGrade(i+1);
-				categories[0].setName(category[0]);
-				categories[0].setAuction(auction);
-				listCategory.add(categories[0]);
+				categories[i] = new Category();
+				categories[i].setGrade(i+1);
+				categories[i].setName(category[i]);
+				categories[i].setAuction(auction);
+				listCategory.add(categories[i]);
 			}
 			auction.setCategories(listCategory);
 			auction.setUser(user);

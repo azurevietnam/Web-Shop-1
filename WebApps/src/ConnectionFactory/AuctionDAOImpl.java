@@ -21,4 +21,19 @@ public class AuctionDAOImpl implements AuctionDAO {
 			EntityManagerHelper.closeEntityManager();
 		}
 	}
+	
+	@Override
+	public void searchAuction(String categories){
+		
+		try{
+			EntityManagerHelper.getEntityManager();
+			EntityManagerHelper.beginTransaction();
+			
+			EntityManagerHelper.commit();
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally {
+			EntityManagerHelper.closeEntityManager();
+		}
+	}
 }

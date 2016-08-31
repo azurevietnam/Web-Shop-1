@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ConnectionFactory.AuctionDAO;
+import ConnectionFactory.AuctionDAOImpl;
+
 /**
  * Servlet implementation class SearchAuction
  */
@@ -26,8 +29,11 @@ public class SearchAuction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String categories = request.getParameter("Categories");
+		if(!categories.equals("")){
+			AuctionDAO auctionDAO = new AuctionDAOImpl();
+			auctionDAO.searchAuction(categories);
+		}
 	}
 
 	/**
